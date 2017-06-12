@@ -11,8 +11,9 @@
 
   {% for post in posts %}
   <div class="post post-entry">
-    {{post.title}}<br>
+    <a href="{% url 'single_post' post_pk=post.pk %}">{{post.title}}</a><br>
     {{post.pub_date_huminize}}<br>
+    <img src="{{ post.image.url }}" alt=""><br>
     {{post.trimify_content}}<br><br>
   </div>
   {% endfor %}
