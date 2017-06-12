@@ -12,9 +12,9 @@
   {% for post in posts %}
   <div class="post post-entry">
     <a href="{% url 'single_post' post_pk=post.pk %}">{{post.title}}</a><br>
-    {{post.pub_date_huminize}}<br>
+    <p class="post-meta">{{post.pub_date_huminize}}</p>
     <img src="{{ post.image.url }}" alt=""><br>
-    {{post.trimify_content}}<br><br>
+    <p class="post-excerpt">{{post.trimify_content}}</p>
   </div>
   {% endfor %}
 
