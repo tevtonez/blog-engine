@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+<body>
+  <h1>Ants blog</h1>
+
+  <h4>Recent posts:</h4>
+
+  {% for post in posts %}
+  <div class="post post-entry">
+    {{post.title}}<br>
+    {{post.pub_date_huminize}}<br>
+    {{post.trimify_content}}<br><br>
+  </div>
+  {% endfor %}
+
+</body>
+</html>
