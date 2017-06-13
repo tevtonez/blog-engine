@@ -9,19 +9,50 @@
 
 </head>
 <body>
-  <h1>Ants blog</h1>
 
-  <h4>Recent posts:</h4>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
 
-  {% for post in posts %}
-  <div class="post post-entry">
-    <a href="{% url 'single_post' post_pk=post.pk %}">{{post.title}}</a><br>
-    <p class="post-meta">{{post.pub_date_huminize}}</p>
-    <img src="{{ post.image.url }}" alt=""><br>
-    <p class="post-excerpt">{{post.trimify_content}}</p>
+        <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#topnav">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="{% url 'home' %}">
+          Ants' blog
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="topnav">
+        <ul class="nav navbar-nav">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <h1>Ants blog</h1>
+
+    <h4>Recent posts:</h4>
+
+    {% for post in posts %}
+    <div class="post post-entry">
+      <a href="{% url 'single_post' post_pk=post.pk %}">{{post.title}}</a><br>
+      <p class="post-meta">{{post.pub_date_huminize}}</p>
+      <img src="{{ post.image.url }}" alt=""><br>
+      <p class="post-excerpt">{{post.trimify_content}}</p>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>
