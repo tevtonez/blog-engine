@@ -20,9 +20,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="{% url 'home' %}">
-          Ants' blog
-        </a>
+        <a class="navbar-brand" href="{% url 'home' %}">Ants' blog</a>
       </div>
 
       <div class="collapse navbar-collapse" id="topnav">
@@ -37,17 +35,18 @@
 
 
   <div class="container">
-    <h1>Ants blog</h1>
-
     <h4>Recent posts:</h4>
+    <hr>
 
     {% for post in posts %}
     <div class="post post-entry">
-      <a href="{% url 'single_post' post_pk=post.pk %}">{{post.title}}</a><br>
-      <p class="post-meta">{{post.pub_date_huminize}}</p>
-      <img src="{{ post.image.url }}" alt=""><br>
+      <h3><a href="{% url 'single_post' post_pk=post.pk %}">{{post.title}}</a><br></h3>
+      <p class="post-meta"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+{{post.pub_date_huminize}}</p>
+      <img src="{{ post.image.url }}" alt="" class="img-responsive center-block"><br>
       <p class="post-excerpt">{{post.trimify_content}}</p>
     </div>
+    <hr>
     {% endfor %}
   </div>
 
