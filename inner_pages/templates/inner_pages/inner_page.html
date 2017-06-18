@@ -1,18 +1,13 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Home</title>
-
+  <title>{{page.page_title}}</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
 </head>
 <body>
-
-  <img class="img-responsive center-block" src=" {% static 'posts/images/antsblog-header.jpg' %} " alt="">
-
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
@@ -36,25 +31,26 @@
     </div>
   </nav>
 
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>{{page.page_title}}</h2>
+      </div>
+    </div>
+  </div>
 
   <div class="container">
-    <h4>Recent posts:</h4>
-    <hr>
-
-    {% for post in posts %}
-    <div class="post post-entry">
-      <h3><a href="{% url 'single_post' post_pk=post.pk %}">{{post.title}}</a><br></h3>
-      <p class="post-meta"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-{{post.pub_date_huminize}}</p>
-      <img src="{{ post.image.url }}" alt="" class="img-responsive center-block"><br>
-      <p class="post-excerpt">{{post.trimify_content}}</p>
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>{{page.title}}</h1>
+        <img src="{{ post.image.url }}" alt=""><br>
+        <article class="post-content">{{page.page_body|safe}}</article>
+      </div>
     </div>
-    <hr>
-    {% endfor %}
   </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>
